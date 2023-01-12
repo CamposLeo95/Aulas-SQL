@@ -92,3 +92,18 @@ FROM
 FULL JOIN subcategoria
 	ON produtos.id_subcategoria = subcategoria.id_subcategoria
 WHERE id_produto IS NULL OR nome_subcategoria IS NULL
+
+---------------------------------------------------------------------------------------------
+----------------------------------EXEMPLO NO DW CONTOSO --------------------------------------
+SELECT * FROM DimProduct
+SELECT * FROM DimProductSubcategory
+
+SELECT
+	DimProduct.ProductKey,
+	DimProduct.ProductName,
+	DimProduct.ProductSubcategoryKey,
+	DimProductSubcategory.ProductSubcategoryName
+FROM 
+	DimProduct
+RIGHT JOIN DimProductSubcategory
+	ON DimProduct.ProductSubcategoryKey = DimProductSubcategory.ProductSubcategoryKey
